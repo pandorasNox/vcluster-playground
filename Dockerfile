@@ -26,7 +26,7 @@ ENV KUBECTL_VERSION=v1.25.2
 #     chmod +x /usr/local/bin/kubectl; \
 #     # command -v kubectl; \
 #     # kubectl version --client | grep --fixed-strings "${KUBECTL_VERSION:?}"
-RUN curl -sLO --fail https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
+RUN curl -sLO --fail https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/${TARGETARCH}/kubectl && \
     mv kubectl /usr/bin/kubectl && \
     chmod +x /usr/bin/kubectl
 
