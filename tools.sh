@@ -29,6 +29,7 @@ function func_build() {
   # for debug
   # docker build --progress=plain .
 
+  # docker build .
   docker build -q .
 }
 
