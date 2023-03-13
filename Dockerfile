@@ -30,24 +30,21 @@ RUN curl -sLO --fail https://storage.googleapis.com/kubernetes-release/release/$
     mv kubectl /usr/bin/kubectl && \
     chmod +x /usr/bin/kubectl
 
-# # linux amd
-# #RUN curl -s -L "https://github.com/loft-sh/vcluster/releases/latest" | sed -nE 's!.*"([^"]*vcluster-linux-amd64)".*!https://github.com\1!p' | xargs -n 1 curl -L -o vcluster && chmod +x vcluster;
+# vcluster install
+#
+ENV VCLUSTER_VERSION=v0.14.2
+#
+# linux amd
 RUN if [ "${TARGETPLATFORM}" = "linux/amd64" ]; then \
       curl -L -o vcluster \
-        https://github.com/loft-sh/vcluster/releases/download/v0.12.2/vcluster-linux-amd64; \
+        https://github.com/loft-sh/vcluster/releases/download/${VCLUSTER_VERSION}/vcluster-linux-amd64; \
     fi
-# RUN curl -L -o vcluster \
-#     https://github.com/loft-sh/vcluster/releases/download/v0.12.2/vcluster-linux-amd64
-
-# # linux arm
-# # RUN curl -s -L "https://github.com/loft-sh/vcluster/releases/latest" | sed -nE 's!.*"([^"]*vcluster-linux-arm64)".*!https://github.com\1!p' | xargs -n 1 curl -L -o vcluster && chmod +x vcluster;
+#
+# linux arm
 RUN if [ "${TARGETPLATFORM}" = "linux/arm64" ]; then \
       curl -L -o vcluster \
-        https://github.com/loft-sh/vcluster/releases/download/v0.12.2/vcluster-linux-arm64; \
+        https://github.com/loft-sh/vcluster/releases/download/${VCLUSTER_VERSION}/vcluster-linux-arm64; \
     fi
-# RUN curl -L -o vcluster \
-#     https://github.com/loft-sh/vcluster/releases/download/v0.12.2/vcluster-linux-arm64
-
 # # osx ?
 
 RUN chmod +x vcluster
