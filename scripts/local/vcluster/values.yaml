@@ -1,0 +1,5 @@
+
+syncer:
+  extraArgs:
+    # - --tls-san=my-vcluster.example.com
+    - --tls-san=localhost

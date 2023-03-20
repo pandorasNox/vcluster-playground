@@ -6,14 +6,14 @@
 
 ## cmds
 ``` bash
-vcluster --namespace lab-nox create test
+vcluster --namespace lab-vcluster create --connect=false vcluster-test
 # automaticly installs helm if not present (v )
 
-vcluster --namespace lab-nox connect test -- ash
+vcluster --namespace lab-vcluster connect vcluster-test -- ash
 
 ## in normal cli container
-# kubectl -n lab-nox get secret vc-test --template={{.data.config}} | base64 -d > vkubeconfig.yaml
-# kubectl -n lab-nox port-forward test-0 8443 &
+# kubectl -n lab-vcluster get secret vc-test --template={{.data.config}} | base64 -d > vkubeconfig.yaml
+# kubectl -n lab-vcluster port-forward test-0 8443 &
 # kubectl --kubeconfig=./vkubeconfig.yaml get ns
 
 ```

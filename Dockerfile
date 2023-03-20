@@ -11,6 +11,7 @@ ARG BUILDARCH
 # RUN echo "target:\"${TARGETPLATFORM}\" / \"${BUILDARCH}\""
 
 RUN apk add --update --no-cache \
+    bash \
     ca-certificates \
     curl \
     file
